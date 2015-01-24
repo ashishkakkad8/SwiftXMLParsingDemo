@@ -11,7 +11,8 @@ class ViewController: UIViewController,NSXMLParserDelegate {
     var currentElement:String = ""
     var passData:Bool=false
     var passName:Bool=false
-
+    var parser = NSXMLParser()
+    
     @IBOutlet var lblNameData : UILabel! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,7 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         var url:String="http://api.androidhive.info/pizza/?format=xml"
         var urlToSend: NSURL = NSURL(string: url)
         // Parse the XML
-        var parser = NSXMLParser(contentsOfURL: urlToSend)
+        parser = NSXMLParser(contentsOfURL: urlToSend)!
         parser.delegate = self
         
         var success:Bool = parser.parse()
