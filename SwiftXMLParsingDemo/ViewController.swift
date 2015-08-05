@@ -18,7 +18,7 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         super.viewDidLoad()
         
         var url:String="http://api.androidhive.info/pizza/?format=xml"
-        var urlToSend: NSURL = NSURL(string: url)
+        var urlToSend: NSURL = NSURL(string: url)!
         // Parse the XML
         parser = NSXMLParser(contentsOfURL: urlToSend)!
         parser.delegate = self
@@ -42,7 +42,7 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func parser(parser: NSXMLParser!,didStartElement elementName: String!, namespaceURI: String!, qualifiedName : String!, attributes attributeDict: NSDictionary!) {
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
         currentElement=elementName;
         if(elementName=="id" || elementName=="name" || elementName=="cost" || elementName=="description")
         {
@@ -53,7 +53,7 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser!, didEndElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!) {
+    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         currentElement="";
         if(elementName=="id" || elementName=="name" || elementName=="cost" || elementName=="description")
         {
@@ -64,9 +64,9 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser!, foundCharacters string: String!) {
+    func parser(parser: NSXMLParser, foundCharacters string: String?) {
         if(passName){
-            strXMLData=strXMLData+"\n\n"+string
+            strXMLData=strXMLData+"\n\n"+string!
         }
         
         if(passData)
@@ -75,8 +75,7 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser!, parseErrorOccurred parseError: NSError!) {
+    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
         NSLog("failure error: %@", parseError)
     }
 }
-
