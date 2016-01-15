@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75414FF21C48E914002DD7A5 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75414FF01C48E914002DD7A5 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		78EEBDCD199C4912006F9DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEBDCC199C4912006F9DE6 /* AppDelegate.swift */; };
 		78EEBDCF199C4912006F9DE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78EEBDCE199C4912006F9DE6 /* ViewController.swift */; };
 		78EEBDD2199C4912006F9DE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78EEBDD0199C4912006F9DE6 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		75414FF11C48E914002DD7A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Launch Screen.storyboard"; sourceTree = "<group>"; };
 		78EEBDC7199C4912006F9DE6 /* SwiftXMLParsingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftXMLParsingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78EEBDCB199C4912006F9DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78EEBDCC199C4912006F9DE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				78EEBDCC199C4912006F9DE6 /* AppDelegate.swift */,
 				78EEBDCE199C4912006F9DE6 /* ViewController.swift */,
 				78EEBDD0199C4912006F9DE6 /* Main.storyboard */,
+				75414FF01C48E914002DD7A5 /* Launch Screen.storyboard */,
 				78EEBDD3199C4912006F9DE6 /* Images.xcassets */,
 				78EEBDCA199C4912006F9DE6 /* Supporting Files */,
 			);
@@ -153,7 +156,9 @@
 		78EEBDBF199C4912006F9DE6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = creativeinfoway;
 				TargetAttributes = {
 					78EEBDC6199C4912006F9DE6 = {
@@ -189,6 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75414FF21C48E914002DD7A5 /* Launch Screen.storyboard in Resources */,
 				78EEBDD2199C4912006F9DE6 /* Main.storyboard in Resources */,
 				78EEBDD4199C4912006F9DE6 /* Images.xcassets in Resources */,
 			);
@@ -232,6 +238,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		75414FF01C48E914002DD7A5 /* Launch Screen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				75414FF11C48E914002DD7A5 /* Base */,
+			);
+			name = "Launch Screen.storyboard";
+			sourceTree = "<group>";
+		};
 		78EEBDD0199C4912006F9DE6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -263,6 +277,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -327,6 +342,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SwiftXMLParsingDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ashish.XMLParsing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -338,6 +354,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = SwiftXMLParsingDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ashish.XMLParsing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -357,6 +374,7 @@
 				INFOPLIST_FILE = SwiftXMLParsingDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = ashish.XMLParsing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -373,6 +391,7 @@
 				INFOPLIST_FILE = SwiftXMLParsingDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = ashish.XMLParsing;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
@@ -397,6 +416,7 @@
 				78EEBDE5199C4913006F9DE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		78EEBDE6199C4913006F9DE6 /* Build configuration list for PBXNativeTarget "SwiftXMLParsingDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +425,7 @@
 				78EEBDE8199C4913006F9DE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

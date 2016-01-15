@@ -17,23 +17,23 @@ class ViewController: UIViewController,NSXMLParserDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var url:String="http://api.androidhive.info/pizza/?format=xml"
-        var urlToSend: NSURL = NSURL(string: url)!
+        let url:String="http://api.androidhive.info/pizza/?format=xml"
+        let urlToSend: NSURL = NSURL(string: url)!
         // Parse the XML
         parser = NSXMLParser(contentsOfURL: urlToSend)!
         parser.delegate = self
         
-        var success:Bool = parser.parse()
+        let success:Bool = parser.parse()
         
         if success {
-            println("parse success!")
+            print("parse success!")
             
-            println(strXMLData)
+            print(strXMLData)
             
             lblNameData.text=strXMLData
             
         } else {
-            println("parse failure!")
+            print("parse failure!")
         }
     }
 
@@ -42,7 +42,7 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [NSObject : AnyObject]) {
+    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         currentElement=elementName;
         if(elementName=="id" || elementName=="name" || elementName=="cost" || elementName=="description")
         {
@@ -64,14 +64,14 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String?) {
+    func parser(parser: NSXMLParser, foundCharacters string: String) {
         if(passName){
-            strXMLData=strXMLData+"\n\n"+string!
+            strXMLData=strXMLData+"\n\n"+string
         }
         
         if(passData)
         {
-            println(string)
+            print(string)
         }
     }
     
