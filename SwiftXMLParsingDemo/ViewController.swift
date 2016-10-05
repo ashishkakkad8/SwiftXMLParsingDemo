@@ -5,22 +5,22 @@
 
 import UIKit
 
-class ViewController: UIViewController,NSXMLParserDelegate {
+class ViewController: UIViewController,XMLParserDelegate {
     
     var strXMLData:String = ""
     var currentElement:String = ""
     var passData:Bool=false
     var passName:Bool=false
-    var parser = NSXMLParser()
+    var parser = XMLParser()
     
     @IBOutlet var lblNameData : UILabel! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let url:String="http://api.androidhive.info/pizza/?format=xml"
-        let urlToSend: NSURL = NSURL(string: url)!
+        let urlToSend: URL = URL(string: url)!
         // Parse the XML
-        parser = NSXMLParser(contentsOfURL: urlToSend)!
+        parser = XMLParser(contentsOf: urlToSend)!
         parser.delegate = self
         
         let success:Bool = parser.parse()
@@ -42,7 +42,7 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         currentElement=elementName;
         if(elementName=="id" || elementName=="name" || elementName=="cost" || elementName=="description")
         {
@@ -53,7 +53,7 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         currentElement="";
         if(elementName=="id" || elementName=="name" || elementName=="cost" || elementName=="description")
         {
@@ -64,7 +64,7 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser, foundCharacters string: String) {
+    func parser(_ parser: XMLParser, foundCharacters string: String) {
         if(passName){
             strXMLData=strXMLData+"\n\n"+string
         }
@@ -75,7 +75,7 @@ class ViewController: UIViewController,NSXMLParserDelegate {
         }
     }
     
-    func parser(parser: NSXMLParser, parseErrorOccurred parseError: NSError) {
-        NSLog("failure error: %@", parseError)
+    func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        print("failure error: ", parseError)
     }
 }
